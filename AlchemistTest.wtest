@@ -1,4 +1,4 @@
-import example.*
+import Alchemist.*
 
 describe "AlchemistTest" {
 
@@ -29,6 +29,8 @@ describe "AlchemistTest" {
 		assert.equals(100, alquimista.capacidadOfensiva())
 	}
 	test "Un alquimista es profesional" {
-		assert
+		alquimista.agregarItem(bomba)
+		alquimista.agregarItem(pocion)
+		assert.that(alquimista.esProfesional())
 	}
 }

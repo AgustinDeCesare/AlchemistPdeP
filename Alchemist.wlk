@@ -1,17 +1,3 @@
-/*
-
-object material{
-	var calidad
-	method materialMistico(){
-		
-	}	
-}
-
-object recoleccion{
-	var materiales = []
-}
-*/
-
 object alquimista{
 	var itemsDeCombate = []
 	var itemsDeRecoleccion = []
@@ -38,6 +24,15 @@ object alquimista{
 	}
 	method capacidadOfensiva(){
 		return itemsDeCombate.sum({item => item.capacidadOfensiva()})
+	}
+	method esProfesional(){
+		return self.itemsSonProfesionales() && self.todosItemsEfectivos() && self.esBuenExplorador()
+	}
+	method itemsSonProfesionales(){
+		return (itemsDeCombate.sum({item => item.calidad()}) / itemsDeCombate.size()) > 50
+	}
+	method todosItemsEfectivos(){
+		return self.cantidadDeItemsDeCombate() == self.cantidadDeItemsDeCombateEfectivos()
 	}
 }	
 
