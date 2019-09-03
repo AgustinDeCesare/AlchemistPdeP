@@ -28,4 +28,7 @@ describe "AlchemistTest" {
 		alquimista.agregarItem(pocion)
 		assert.equals(100, alquimista.capacidadOfensiva())
 	}
+	test "Un alquimista es profesional" {
+		assert
+	}
 }
