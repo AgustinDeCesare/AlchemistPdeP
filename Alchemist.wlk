@@ -51,7 +51,7 @@ object bomba{
 }
 
 object pocion{
-	var materiales = []
+	var materiales = [materialBomba]
 	var poderCurativo = 25
 	method esEfectivo(){
 		return poderCurativo > 50 && self.fueCreadaConMaterialMistico()
@@ -75,5 +75,14 @@ object debilitador{
 	}
 	method fueCreadaConMaterialMistico(){
 		return materiales.any({material => material.esMistico()})
+	}
+}
+
+object materialBomba{
+	method calidad(){
+		return 100
+	}
+	method esMistico(){
+		return false
 	}
 }
