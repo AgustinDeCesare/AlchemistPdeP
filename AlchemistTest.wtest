@@ -1,0 +1,31 @@
+import example.*
+
+describe "AlchemistTest" {
+
+	test "Un alquimista tiene criterio" {
+		assert.that(alquimista.tieneCriterio())
+	}
+	
+	test "Un alquimista tiene criterio teniendo items" {
+		alquimista.agregarItem(bomba)
+		assert.that(alquimista.tieneCriterio())
+	}
+	test "Un alquimista no tiene criterio teniendo items" {
+		alquimista.agregarItem(pocion)
+		assert.notThat(alquimista.tieneCriterio())
+	}
+	test "Un alquimista es buen explorador"{
+		alquimista.agregarItemDeRecoleccion("Una red")
+		alquimista.agregarItemDeRecoleccion("Otra red")
+		alquimista.agregarItemDeRecoleccion("Otra red mas")
+		assert.that(alquimista.esBuenExplorador())
+	}
+	test "Un alquimista no es buen explorador"{
+		assert.notThat(alquimista.esBuenExplorador())
+	}
+	test "Capacidad ofensiva de un alquimista es..." {
+		alquimista.agregarItem(bomba)
+		alquimista.agregarItem(pocion)
+		assert.equals(100, alquimista.capacidadOfensiva())
+	}
+}
